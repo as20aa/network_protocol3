@@ -76,7 +76,7 @@ void handle_recv_RecvQ(Receiver * recv)
 	{
 		int pos = i % MAX_BUFFER_SIZE;
 		recv->recvQ[pos].received = 0;
-		printf("<RECV_%d>: %s\n", recv->recv_id, recv->recvQ[pos].frame->data);
+		printf("<RECV_%d>:[%s]\n", recv->recv_id, recv->recvQ[pos].frame->data);
 	}
 	recv->LAR = lar % MAX_BUFFER_SIZE;
 }
@@ -91,6 +91,7 @@ void receiver(void * input_receiver)
 	//printf("receiver_id %d\n",receiver->recv_id);
 	while (1)
 	{
+		pthread_testcancel();
 		handle_recv_framelist(receiver);
 		handle_recv_RecvQ(receiver);
 	}

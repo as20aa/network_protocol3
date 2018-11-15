@@ -154,16 +154,16 @@ int main(int argc, char *argv[])
 	for (int i = 0; i < glb_senders_array_length; i++)
 	{
 		pthread_cancel(sender_threads[i]);
-		pthread_join(sender_threads[i],NULL);
+		//pthread_join(sender_threads[i],NULL);
 	}
 	for (int i = 0; i < glb_receivers_array_length; i++)
 	{
 		pthread_cancel(receiver_threads[i]);
-		pthread_join(receiver_threads[i], NULL);
+		//pthread_join(receiver_threads[i], NULL);
 	}
 	//fprintf(stderr,"terminated receiver and sender\n");
-	free(sender_threads);
-	free(receiver_threads);
+	//free(sender_threads);
+	//free(receiver_threads);
 	free(glb_senders_array);
 	free(glb_receivers_array);
 

@@ -21,7 +21,7 @@ void stdin_function(void)
 		memset(msg, 0, MAX_INPUT_SIZE);
 		//judge the input cmd
 		gets(input);
-		sscanf(input, "%s %d %d %s", cmd, &src, &dst, msg);
+		sscanf(input, "%s %d %d %[^\n]", cmd, &src, &dst, msg);
 		//sprintf("%s %d %d %s\n", cmd, src, dst, msg);
 		if (strcmp(cmd, "msg") == 0)
 		{
@@ -38,7 +38,7 @@ void stdin_function(void)
 			for (int i = 0; i < frame_len; i++)
 			{
 				char * temp = convert_frame_to_char(&frames[i]);
-				Frame * test_frame = convert_char_to_frame(temp);
+				//Frame * test_frame = convert_char_to_frame(temp);
 				//add the crc to the frame
 				//fprintf("tail of temp is %c\n", temp[MAX_FRAME_SIZE - 1]);
 				append_crc(temp, MAX_FRAME_SIZE);

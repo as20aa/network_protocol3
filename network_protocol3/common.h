@@ -147,5 +147,3 @@ int glb_senders_array_length;
 int glb_receivers_array_length;
 SysConfig glb_sysconfig;
 int CORRUPTION_BITS;
-unsigned int send_seq;
-unsigned int recv_seq;
